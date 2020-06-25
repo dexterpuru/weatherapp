@@ -1,0 +1,16 @@
+.container1 {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+.flex-container {
+  display: flex;
+  text-align: center;
+}
+
+.item {
+  text-align: center;
+  width: 100%;
+  border: black solid 1px;
+}

@@ -1,0 +1,60 @@
+{% load static %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <title>WeatherApp</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container1">
+        <form action="/" method="POST">
+          {% csrf_token %}
+          <label>Enter City: </label>
+          <input type="text" name="city" value="{{city}}" />
+          <input type="submit" value="Search" />
+        </form>
+      </div>
+      {% if weather_data.error %}
+      <hr />
+      <p>Requested city can not be found. Showing defaut city</p>
+      <hr />
+      {% endif %}
+      <hr />
+      <h1>{{weather_data.one.location}}</h1>
+
+      <div class="flex-container">
+        <div class="item">
+          <p>Date: {{weather_data.one.date}}</p>
+          <hr />
+          <p>Average Temp: {{weather_data.one.avg_temp}}</p>
+          <hr />
+          <p>{{weather_data.one.text}}</p>
+          <img src="{{weather_data.one.icon}}" alt="icon" />
+        </div>
+        <div class="item">
+          <div class="item">
+            <p>Date: {{weather_data.two.date}}</p>
+            <hr />
+            <p>Average Temp: {{weather_data.two.avg_temp}}</p>
+            <hr />
+            <p>{{weather_data.two.text}}</p>
+            <img src="{{weather_data.two.icon}}" alt="icon" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="item">
+            <p>Date: {{weather_data.three.date}}</p>
+            <hr />
+            <p>Average Temp: {{weather_data.three.avg_temp}}</p>
+            <hr />
+            <p>{{weather_data.three.text}}</p>
+            <img src="{{weather_data.three.icon}}" alt="icon" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock %}
