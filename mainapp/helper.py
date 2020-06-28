@@ -3,7 +3,7 @@ import json
 
 
 def helpr(city):
-    api_key = "6d84ec2b871141f2818120214202506"
+    api_key = "<api key>"
     url = "http://api.weatherapi.com/v1/forecast.json"
 
     data = {
